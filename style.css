@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'plain-light';
+    src: url(./plain-light-webfont.woff);
+}
+
+@font-face {
+    font-family: 'plain-regular';
+    src: url(./plain-regular-webfont.woff);
+}
+
+@font-face {
+    font-family: 'silk-serif';
+    src: url(./silkserif-lightitalic-webfont.woff);
+}
+
+@font-face {
+    font-family: 'silk-serif-regular';
+    src: url(./silkserif-regularitalic-webfont.woff);
+}
+
+
+html, body{
+    height: 100%;
+    width: 100%;
+    color: #fff;
+}
+
+#loader{
+    height: 100vh;
+    width: 100%;
+    background-color: #0b0b0b;
+    position: fixed;
+}
+
+#loader .loader-text{
+    padding: 15vh 5vw;
+}
+
+#loader .line{
+    text-transform: uppercase;
+    display: flex;
+    align-items: start;
+    gap: 1.7vw;
+    overflow: hidden;
+
+    &:first-of-type{
+     gap: 6vw;
+    }
+
+    .line1-part1{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-left: 2.7vw;
+        gap: 1vw;
+    }
+
+    h1{
+        font-size: 7.2vw;
+        line-height: 7.5vw;
+        font-family: 'plain-light';
+        font-weight: 900;
+    }
+
+    h4{
+        font-size: 3.2vw;
+        font-family: 'silk-serif';
+        font-weight: 100;
+        width: 6vw;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    h5{
+        font-size: 3.2vw;
+        font-family: 'silk-serif';
+        font-weight: 100;
+    }
+    
+    h2{
+        font-size: 7.2vw;
+        line-height: 7.5vw;
+        font-family: "plain-light";
+        opacity: 0;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes animatetext {
+    0%{
+        opacity:1;
+        font-family: "plain-light";
+        font-weight: 900;
+        color: #fff;
+    }
+    48%{
+        opacity: 0;
+        font-family: "plain-light";
+        font-weight: 900;
+        color: #fff;
+    }
+    50%{
+        opacity: 1;
+        font-family: "silk-serif";
+        -webkit-text-stroke: 1px #fff;
+        font-weight: 100;
+        color: transparent;
+    }
+    100%{
+        opacity: 0;
+        font-family: "silk-serif";
+        -webkit-text-stroke: 1px #fff;
+        font-weight: 100;
+        color: transparent;
+    }
+}
+
+
+
+.page1{
+    height: 100vh;
+    width: 100%;
+    background-color: #151514;
+}
+
+.page2{
+    height: 100vh;
+    width: 100%;
+    background-color: #151514;
+}
+
+.page3{
+    height: 100vh;
+    width: 100%;
+    background-color: #151514;
+}
