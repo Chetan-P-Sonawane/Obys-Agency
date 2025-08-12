@@ -6,22 +6,22 @@
 
 @font-face {
     font-family: 'plain-light';
-    src: url(./plain-light-webfont.woff);
+    src: url(./fonts/plain-light-webfont.woff);
 }
 
 @font-face {
     font-family: 'plain-regular';
-    src: url(./plain-regular-webfont.woff);
+    src: url(./fonts/plain-regular-webfont.woff);
 }
 
 @font-face {
     font-family: 'silk-serif';
-    src: url(./silkserif-lightitalic-webfont.woff);
+    src: url(./fonts/silkserif-lightitalic-webfont.woff);
 }
 
 @font-face {
     font-family: 'silk-serif-regular';
-    src: url(./silkserif-regularitalic-webfont.woff);
+    src: url(./fonts/silkserif-regularitalic-webfont.woff);
 }
 
 
@@ -29,6 +29,26 @@ html, body{
     height: 100%;
     width: 100%;
     color: #fff;
+    background-color: #0b0b0b;
+    /* cursor: none; */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+
+.mousefollower {
+    border: 2px solid #fff;
+    background-color: rgb(255, 255, 255);
+    mix-blend-mode: difference;
+}
+
+.cursor{
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50%;
+    border: 2px solid #ffffff75;
+    position: absolute;
 }
 
 #loader{
@@ -36,6 +56,7 @@ html, body{
     width: 100%;
     background-color: #0b0b0b;
     position: fixed;
+    z-index: 999;
 }
 
 #loader .loader-text{
@@ -48,6 +69,7 @@ html, body{
     align-items: start;
     gap: 1.7vw;
     overflow: hidden;
+    /* background-color: red; */
 
     &:first-of-type{
      gap: 6vw;
@@ -62,8 +84,8 @@ html, body{
     }
 
     h1{
-        font-size: 7.2vw;
-        line-height: 7.5vw;
+        font-size: 7vw;
+        line-height: 7.2vw;
         font-family: 'plain-light';
         font-weight: 900;
     }
@@ -131,14 +153,362 @@ html, body{
     background-color: #151514;
 }
 
-.page2{
-    height: 100vh;
-    width: 100%;
-    background-color: #151514;
+.page1 nav{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 3.36vw 4.2vw;
 }
 
-.page3{
-    height: 100vh;
+.nav-part-1{
+    width: 31%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.nav-part-1 .svg-div{
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+    gap: 2.5vw;
+}
+
+.page1 nav h4{
+    width: 15%;
+    font-size: 0.98vw;
+    line-height: 1.05vw;
+    font-family:"plain-light";
+    font-weight: 500;
+}
+
+.nav-part-2{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 2.5vw;
+}
+
+.nav-part-2 h5{
+    font-size: 0.98vw;
+    font-family:"plain-light";
+    font-weight: 500;
+}
+
+.hero{
+    margin-left: 28%;
+    height: fit-content;
+    width: fit-content;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.hero:first-of-type{
+    padding-top: 5vw;
+}
+
+.hero h1{
+    font-size: 7.45vw;
+    line-height: 7.45vw;
+    font-family:"plain-light";
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+}
+
+#hero1::before{
+    content:"01";
+    font-size: 3.2vw;
+    font-family: "silk-serif";
+    position: absolute;
+    left: 18.5%;
+}
+
+#hero3 h1{
+    padding-bottom: 1vw;
+}
+
+/* #hero3 h1 span{
+    transition: all 0.5s;
+} */
+
+#hero3 h1 span:hover{
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
+    font-weight: 500;
+    transition: all 0.5s;
+
+}
+
+
+#hero3 h1 span:hover::after{
+    opacity: 0;
+}
+
+#hero3 h1 span:first-of-type{
+    position: relative;
+    padding-bottom: 1vw;
+
+    &::after{
+        content: " ";
+        height: 14%;
+        width: 100%;
+        position: absolute;
+        left: 0%;
+        bottom: 0%;
+        background-color: #fff;
+    }
+}
+
+#hero3 h1 span:last-of-type{
+    position: relative;
+    padding-bottom: 1vw;
+    padding-left: 1.5vw;
+
+    &::before{
+        content: "/";
+        position: absolute;
+        left: -5%;
+        color: white;
+        font-weight:600;
+        -webkit-text-stroke: 0;
+    }
+
+    &::after{
+        content: " ";
+        height: 14%;
+        width: 100%;
+        position: absolute;
+        left: 0%;
+        bottom: 0%;
+        background-color: #fff;
+    }
+}
+
+
+.page2{
+    min-height: 100vh;
     width: 100%;
     background-color: #151514;
+    padding: 15vw 0;
+    position: relative;
+
+}
+
+.page2 .vid-wrapper{
+    position: relative;
+}
+
+.page2 .video-container{
+    height: 35vw;
+    width: calc(100%-28%);
+    margin-left: 28%;
+    overflow: hidden;
+    position: relative;
+}
+
+.page2 .video-button{
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    position: absolute;
+    left: 80%;
+    top: 0%;
+    transform: translate(-50%,-50%);
+    background-color: #ffa73c;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+
+    i{
+        font-size: 2.7vw;
+    }
+}
+
+.page2 .video-img{
+    background-color: red;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-image: url(https://obys.agency/wp-content/uploads/2022/11/Showreel-2022-preview-1.jpg);
+    background-size: cover;
+    background-position: center;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+.page2 video{
+    width: 100%;
+    object-fit: cover;
+    background-position: center;
+}
+
+
+.page3{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #151514;
+    overflow: hidden;
+    /* background-color: rgb(249, 141, 141); */
+}
+
+
+.page3 .page3-title {
+    padding-left: 18%;
+    margin-right: 5%;
+    display: flex;
+    /* background-color: red; */
+
+
+    .title-wrap{
+        /* background-color: yellow; */
+        width: 100%;
+        margin-left:8%;
+        overflow: hidden;
+    }
+    
+    .heading{
+        /* background-color: red; */
+        overflow: hidden;
+    }
+
+    h5{
+        display: inline-block;
+        font-size: 3.2vw;
+        font-family: "silk-serif";
+        line-height: 4vw;
+    }
+
+    h3{
+        display: inline-block;
+        font-size: 7.2vw;
+        font-weight: 600;
+        font-family:"plain-light";
+        text-transform: uppercase;
+        line-height: 7.2vw;
+    }
+}
+
+.page3 .page3-title .underline{
+    margin-top: 6vw;
+    height: 0.1vw;
+    width: 100%;
+    background-color: #fff;
+}
+
+.page3 .projects{
+    min-height: 100vh;
+    padding: 5vw;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /* margin: 2vw; */
+    margin-top: 12vh;
+}
+
+
+.projects .image-div-1, .image-div-2, .image-div-3, .image-div-4{
+    position: relative;
+    flex-shrink: 0;
+    height: 29vw;
+    width: 23vw;
+    overflow: hidden;
+    margin-right: 2vw;
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit:cover;
+        object-position: center;
+    }
+}
+
+.projects .image-div-1{
+    height: 29vw;
+    width: 23vw;
+}
+
+.projects .image-div-2{
+    height: 39vw;
+    width: 32vw;
+}
+
+.projects .image-div-3{
+    margin-top: 29vh;
+    height: 39vw;
+    width: 31vw;
+}
+
+.projects .image-div-4{
+    margin-right: 0vw;
+    margin-top: 10vh;
+    height: 39vw;
+    width: 32vw;
+}
+
+
+/* 
+.image-div{
+    position: relative;
+    flex-shrink: 0;
+    height: 29vw;
+    width: 23vw;
+    overflow: hidden;
+    margin-right: 2vw;
+    height: 29vw;
+    width: 23vw;
+    margin-top: 5vw;
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit:cover;
+        object-position: center;
+    }
+} */
+
+
+._canvas_container{
+    z-index: 99999 !important;
+    pointer-events: none;
+}
+
+.page3-circle1{
+    height: 23vw;
+    width: 23vw;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 48vh;
+    margin-left: 8vw;
+}
+
+.page3-circle1 svg{
+    height: 33%;
+}
+
+
+.page3-circle2{
+    height: 23vw;
+    width: 23vw;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2vw 2vw 2vw 0;
+}
+
+.page3-circle2 svg{
+    height: 33%;
+    transform: rotate(-50deg);
 }
