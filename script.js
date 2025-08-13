@@ -90,6 +90,28 @@ function cursorAnimation() {
     ease: "cubic-bezier(0.23, 1, 0.320, 1)",
     duration: 1,
   });
+
+
+
+  // All Projects Btn
+  const projectbtn = document.querySelector(".project-btn .all-projects-btn");
+
+  projectbtn.addEventListener("mouseenter", ()=>{
+    gsap.to(".all-projects-btn", {
+      scale: 0.9,
+      ease: [0.76, 0, 0.24, 1],
+      duration: 0.3
+    });
+  })
+
+  projectbtn.addEventListener("mouseleave", () => {
+    gsap.to(".all-projects-btn", {
+      scale: 1,
+      ease: [0.76, 0, 0.24, 1],
+      duration: 0.3
+    });
+  });
+
 }
 
 
@@ -159,41 +181,83 @@ function videofun(){
 
 
 function titlereveal(){
+  // gsap.from(".page-title h5", {
+  //   opacity: 0,
+  //   // delay:1,
+  //   duration: 2,
+  //   ease: "expo.out",
+  //   scrollTrigger: {
+  //     trigger: ".page-title",
+  //     start: "top 90%",
+  //     toggleActions: "play reverse play reverse",
+  //     markers: true
+  //   },
+  // });
 
-gsap.from(".page3 .page3-title h5", {
-  opacity: 0,
-  // delay:1,
-  duration: 2,
-  ease: "expo.out",
-  scrollTrigger: {
-    trigger: ".page3 .page3-title",
-    start: "top 90%",
-    toggleActions: "play reverse play reverse",
-  },
-});
+  // gsap.from(".heading h3", {
+  //   y: 150,
+  //   duration: 1.6,
+  //   ease: "expo.out",
+  //   scrollTrigger: {
+  //     trigger: ".page-title .title-wrap",
+  //     start: "top 90%",
+  //     toggleActions: "play reverse play reverse",
+  //     markers: true,
+  //   },
+  // });
 
-gsap.from(".heading h3", {
-  y: 150,
-  duration: 1.6,
-  ease: "expo.out",
-  scrollTrigger: {
-    trigger: ".page3 .title-wrap",
-    start: "top 90%",
-    toggleActions: "play reverse play reverse",
-  },
-});
+  // gsap.from(".underline", {
+  //   x: "200%",
+  //   duration: 2,
+  //   ease: "expo.out",
+  //   scrollTrigger: {
+  //     trigger: ".page-title .underline",
+  //     start: "top 100%",
+  //     toggleActions: "play reverse play reverse",
+  //   },
+  // });
 
-gsap.from(".underline", {
-  x: "200%",
-  duration: 2,
-  ease: "expo.out",
-  scrollTrigger: {
-    trigger: ".page3 .underline",
-    start: "top 100%",
-    toggleActions: "play reverse play reverse",
-  },
-});
+  // Title text animation
+  gsap.utils.toArray(".page-title h5").forEach((el) => {
+    gsap.from(el, {
+      opacity: 0,
+      duration: 2,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: el.closest(".page-title"),
+        start: "top 90%",
+        toggleActions: "play reverse play reverse"
+      },
+    });
+  });
 
+  // Heading animation
+  gsap.utils.toArray(".heading h3").forEach((el) => {
+    gsap.from(el, {
+      y: 150,
+      duration: 1.6,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: el.closest(".page-title").querySelector(".title-wrap"),
+        start: "top 90%",
+        toggleActions: "play reverse play reverse"
+      },
+    });
+  });
+
+  // Underline animation
+  gsap.utils.toArray(".underline").forEach((el) => {
+    gsap.from(el, {
+      x: "200%",
+      duration: 2,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 100%",
+        toggleActions: "play reverse play reverse"
+      },
+    });
+  });
 }
 
 function imganimation(){
@@ -242,4 +306,4 @@ LenisScroll();
 cursorAnimation();
 videofun();
 titlereveal();
-imganimation();
+// imganimation();

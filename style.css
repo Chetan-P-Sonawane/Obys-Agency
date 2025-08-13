@@ -29,7 +29,7 @@ html, body{
     height: 100%;
     width: 100%;
     color: #fff;
-    background-color: #0b0b0b;
+    background-color: #151514;
     /* cursor: none; */
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -292,7 +292,6 @@ html, body{
     background-color: #151514;
     padding: 15vw 0;
     position: relative;
-
 }
 
 .page2 .vid-wrapper{
@@ -328,7 +327,6 @@ html, body{
 }
 
 .page2 .video-img{
-    background-color: red;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -356,22 +354,18 @@ html, body{
 }
 
 
-.page3 .page3-title {
+.page-title {
     padding-left: 18%;
     margin-right: 5%;
     display: flex;
-    /* background-color: red; */
-
 
     .title-wrap{
-        /* background-color: yellow; */
         width: 100%;
         margin-left:8%;
         overflow: hidden;
     }
     
     .heading{
-        /* background-color: red; */
         overflow: hidden;
     }
 
@@ -389,10 +383,11 @@ html, body{
         font-family:"plain-light";
         text-transform: uppercase;
         line-height: 7.2vw;
+        padding-left: 0.2vw;
     }
 }
 
-.page3 .page3-title .underline{
+.underline{
     margin-top: 6vw;
     height: 0.1vw;
     width: 100%;
@@ -511,4 +506,251 @@ html, body{
 .page3-circle2 svg{
     height: 33%;
     transform: rotate(-50deg);
+}
+
+.project-btn{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .all-projects-btn{
+        height: 23vw;
+        width: 23vw;
+        background-color: #ffa73c;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h3{
+            font-size: 1vw;
+            font-weight: 500;
+            font-family: "plain-regular";
+
+            span{
+                font-family: "silk-serif";
+                font-weight: 400;
+            }
+        }
+    }
+
+}
+
+
+
+.page4{
+    min-height: 250vh;
+    width: 100%;
+    background-color: #151514;
+
+    .page4-content{
+        margin-left: 28%;
+        margin-right: 5%;
+        width: calc(100%-28%);
+        position: relative;
+        overflow: hidden;
+
+        >p{
+            width: 50%;
+            font-family: "plain-light";
+            font-weight: 400;
+            font-size: 2.25vw;
+            padding: 3.5vw 0;
+        }
+
+        .page4-flex{
+            width: 100%;
+            display: flex;
+            align-items: start;
+            gap:2.5vw;
+
+
+            .img-div{
+                width: 45%;
+                overflow: hidden;
+                flex-shrink: 0;
+
+                img{
+                    height: 100%;
+                    width: 100%;
+                    scale:1.1;
+                    object-fit:cover;
+                    object-position: right;
+                }
+            }
+
+            p{
+                width: 50%;
+                font-size: 1.01vw;
+                line-height: 1.5vw;
+                margin-top:-.3vw;
+                font-family: "plain-regular";
+
+                &:nth-of-type(2){
+                    margin-top:1.5vw;
+                }
+            }
+        }
+
+
+        .awwwards{
+            width: 34vw;
+            background-color:#3f7df4;
+            position: relative;
+            margin-top: -20%;
+            margin-left: 32%;
+            
+
+            .award-content{
+                padding: 4vw 4vw 5vw 4vw;
+
+                .award{
+                    display: flex;
+                    align-items: start;
+                    justify-content: space-between;
+                    padding: 2.5vw 0;
+                    border-bottom: 1px solid #fff;
+
+                    h4{
+                        width: 60%;
+                        font-family: "plain-light";
+                        font-weight: 500;
+                        font-size: 1.5vw;
+                    }
+
+                    p{
+                        width: 40%;
+                        font-size:1vw;
+                        font-family: "plain-light";
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.page5{
+    /* min-height: 120vh; */
+    background-color: #151514;
+
+    .page5-top{
+        margin-left: 28%;
+        margin-right: 5%;
+        overflow:hidden;
+
+        .page5-para{
+            font-size: 1vw;
+            font-family: "plain-light";
+            padding: 1.5vw 0;
+        }
+    }
+
+    .page5-content{
+        overflow: hidden;
+        padding: 5vw 0 15vw 0;
+        /* background-color: blue; */
+
+        .marquee{
+            display: flex;
+            white-space: nowrap;
+
+            h2{
+                flex-shrink: 0;
+                font-size: 8vw;
+                line-height: 8.5vw;
+                font-family: "plain-light";
+                font-weight: 400;
+                text-transform: uppercase;
+                color: transparent;
+                -webkit-text-stroke: 1px #fff;
+                /* background-color: red; */
+
+                &:last-of-type{
+                    /* background-color: blue; */
+                }
+
+                /* span{
+                    font-family: "silk-serif";
+                    font-size: 7.8vw;
+                } */
+            }
+        }
+
+        #marquee-1 h2, #marquee-3 h2{
+            animation: marqueeanim 20s linear infinite;
+        }
+
+        #marquee-2 h2, #marquee-4 h2{
+            animation: marqueeanim 20s linear infinite reverse;
+        }
+    }
+}
+
+.page6{
+    min-height: 98vh;
+
+    .heading h3{
+        font-family: "plain-light";
+    }
+
+    .footer-wrapper{
+        margin-left: 28%;
+        margin-right: 5%;
+        overflow:hidden;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        width:calc(100%-28%);
+        padding: 7vw 0;
+    }
+
+    .footer-det{
+        width: 30%;
+        
+        p{
+            font-size: 1vw;
+            font-weight: 500;
+            font-family: "plain-regular";
+        }
+        .footer-info{
+            padding-top: 1.5vw;
+        }
+
+        h3{
+            font-size: 1.7vw;
+            line-height: 1.8vw;
+            font-weight: 500;
+            font-family: "plain-regular";
+        }
+    }
+
+    .page6-bottom{
+        margin-left: 28%;
+        margin-right: 5%;
+        overflow:hidden;
+
+        .underline{
+            margin-top:0;
+        }
+
+        .copy{
+            padding: 2.5vw 0;
+            font-size: 1vw;
+            font-family: "plain-light"
+        }
+    }
+}
+
+
+@keyframes marqueeanim {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
 }
