@@ -116,66 +116,78 @@ function cursorAnimation() {
 
 
 function videofun(){
-    let vidwrapper = document.querySelector(".page2 .vid-wrapper");
-    let vidbtn = document.querySelector(".page2 .video-button");
 
-    let video = document.querySelector(".page2 video");
-    let vidimg = document.querySelector(".page2 .video-img");
-
-      let vidcontainer = document.querySelector(".page2 .video-container");
-
-      vidcontainer.addEventListener("mousemove", function(e){
-        let rect = vidcontainer.getBoundingClientRect();
-          let btnRect = vidbtn.getBoundingClientRect(); // get follower size
-
-        gsap.to(vidbtn, {
-          x: e.clientX - rect.left- btnRect.x - btnRect.width/2,
-          y: e.clientY - rect.top - btnRect.y - btnRect.height/2,
-        });
-        // console.log("/2",e.clientX - rect.left - rect.width / 2);
-        // console.log("/1.39",e.clientX - rect.left - rect.width / 1.39);
-      })
+  let vidbtn = document.querySelector(".page2 .video-button");
+  let video = document.querySelector(".page2 video");
+  let vidimg = document.querySelector(".page2 .video-img");
+  let vidcontainer = document.querySelector(".page2 .video-container");
 
 
-    // vidimg.addEventListener("mousemove", function (e) {
-    //   let btnRect = vidbtn.getBoundingClientRect(); // get follower size
-    //   let containerRect = vidimg.getBoundingClientRect(); // get container position
+  // video btn animation
 
-    //   gsap.to(vidbtn, {
-    //     x: e.clientX  - btnRect.x,
-    //     y: e.clientY - btnRect.y,
-    //   });
+  // Problem: If we use nested events and everytime the mouse enters the 
+  // vidcontainer  then it creates a new copy of the listener nested within it,
+  // making the mouse animation faster everytime mouse enters and leaves.
+  // Soln: The isInsideVideo variable is used to tracks the mouse enter and
+  // leave event state which is then used to animate the btn.
 
-    // });
+  let isInsideVideo = false;
 
-
-      vidcontainer.addEventListener("mouseleave", function () {
-        gsap.to(vidbtn, {
-          x: 0,
-          y: 0,
-        });
-      });
-
-    vidcontainer.addEventListener("click", function () {
-      console.log("clicked");
-      if (video.paused) {
-        video.play();
-        vidimg.style.opacity = 0;
-        vidbtn.innerHTML = `<i class="ri-pause-mini-fill"></i>`;
-        gsap.to(vidbtn, {
-          scale: 0.55,
-        });
-        // vidbtn.style.scale = 1;
-      } else {
-        video.pause();
-        vidimg.style.opacity = 1;
-        vidbtn.innerHTML = `<i class="ri-play-mini-fill"></i>`;
-        // vidbtn.style.scale = 0.5;
-        gsap.to(vidbtn, {
-          scale: 1,
-        });
-      }
+  vidcontainer.addEventListener("mouseenter", () => {
+    isInsideVideo = true;
+    gsap.to(".mousefollower", {
+      scale: 0,
+      duration: 0.3,
+      ease: [0.76, 0, 0.24, 1],
     });
+  });
+
+  vidcontainer.addEventListener("mouseleave", () => {
+    isInsideVideo = false;
+    gsap.to(".mousefollower", {
+      scale: 1,
+      duration: 0.3,
+      ease: [0.76, 0, 0.24, 1],
+    });
+    gsap.to(vidbtn, {
+      left: "80%",
+      top: "0%",
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+    });
+  });
+
+  vidcontainer.addEventListener("mousemove", (e) => {
+    if (!isInsideVideo) return;
+    let containerRect = vidimg.getBoundingClientRect();
+    gsap.to(vidbtn, {
+      left: e.x,
+      top: e.y - containerRect.y,
+      duration: 0.5,
+      ease: [0.76, 0, 0.24, 1],
+      overwrite: "auto", // prevents jumpy stacking
+    });
+  });
+
+
+  // video play, pause animations
+  vidcontainer.addEventListener("click", function () {
+    if (video.paused) {
+      video.play();
+      vidimg.style.opacity = 0;
+      vidbtn.innerHTML = `<i class="ri-pause-mini-fill"></i>`;
+      gsap.to(vidbtn, {
+        scale: 0.55,
+      });
+    } else {
+      video.pause();
+      vidimg.style.opacity = 1;
+      vidbtn.innerHTML = `<i class="ri-play-mini-fill"></i>`;
+      gsap.to(vidbtn, {
+        scale: 1,
+      });
+    }
+  });
 
 }
 
@@ -258,6 +270,21 @@ function titlereveal(){
       },
     });
   });
+
+  // animation for subheading in page5 and copyright
+  gsap.utils.toArray(".subheading").forEach((el) => {
+    gsap.from(el, {
+      y: 150,
+      duration: 1.6,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: el.closest(".subhead-wrapper"),
+        start: "top 90%",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+  });
+
 }
 
 function imganimation(){

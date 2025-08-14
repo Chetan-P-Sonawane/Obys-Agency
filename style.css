@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor:none;
 }
 
 @font-face {
@@ -636,6 +637,7 @@ html, body{
 .page5{
     /* min-height: 120vh; */
     background-color: #151514;
+    position:relative;
 
     .page5-top{
         margin-left: 28%;
@@ -653,6 +655,7 @@ html, body{
         overflow: hidden;
         padding: 5vw 0 15vw 0;
         /* background-color: blue; */
+        position:relative;
 
         .marquee{
             display: flex;
